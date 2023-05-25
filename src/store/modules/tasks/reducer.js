@@ -8,9 +8,18 @@ const tasksSlice = createSlice({
     tasks: [],
   },
   reducers: {
-    getTasks(state) {},
-    createTask(state, { payload }) {},
-    deleteTask(state, task) {},
+    getTasks(state) {
+      state.tasks = JSON.parse(localStorage.getItem('tasks'));
+    },
+    createTask(state, { payload }) {
+      state.tasks.push(payload);
+      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    },
+    deleteTask(state, task) {
+      const index = state.tasks.indexOf(task);
+      state.tasks.splice(index, 1);
+      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    },
   },
 });
 

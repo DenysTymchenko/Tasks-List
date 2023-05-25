@@ -8,5 +8,5 @@ export default function useFormValidation() {
     else return true;
   }
 
-  return [inputValue, setInputValue, isInputValid];
+  return [setInputValue, isInputValid];
 }

@@ -11,9 +11,13 @@ export default function CreateNewTask() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [title, setTitle, isTitleValid] = useFormValidation();
+  const [setTitle, isTitleValid] = useFormValidation();
   const handleInputChange = (inputValue, setInput) => {
     setInput(inputValue);
+  }
+
+  const handleCreateNewTask = (task) => {
+
   }
 
   return (
