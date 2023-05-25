@@ -1,6 +1,8 @@
 :root {
   --main: #F1FAEE;
-  --secondary: #FFFFFF;
+  --main-alt: #0f9bb7;
+  --secondary:  #1c73a2;
+  --secondary-alt: #FFFFFF;
   --low-priority: #2A9D8F;
   --medium-priority: #F4A261;
   --high-priority: #E63946;

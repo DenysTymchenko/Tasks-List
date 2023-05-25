@@ -8,17 +8,17 @@
 }
 
 .task svg {
-  cursor: pointer;
+  fill: var(--secondary-alt);
 }
 
 .task-header, .task-footer {
   display: flex !important; /*<Conteiner> overwrites this css property to block*/
   justify-content: space-between;
   align-items: center;
-  color: var(--secondary);
+  color: var(--secondary-alt);
   background-color: black;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .description {
