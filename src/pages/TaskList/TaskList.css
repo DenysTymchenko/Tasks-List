@@ -1,0 +1,7 @@
+.task-list {
+  min-height: 100vh;
+  display: flex !important; /*<Conteiner> overwrites this css property to block*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

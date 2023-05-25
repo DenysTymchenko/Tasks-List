@@ -1,0 +1,35 @@
+.task {
+  width: 35%;
+}
+
+.task * {
+  text-align: center;
+  word-break: break-all;
+}
+
+.task svg {
+  cursor: pointer;
+}
+
+.task-header, .task-footer {
+  display: flex !important; /*<Conteiner> overwrites this css property to block*/
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary);
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.description {
+  padding: 10px 24px;
+}
+
+.task-header {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.task-footer {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}

@@ -1,4 +1,4 @@
-import TaskList from './pages/TaskList';
+import TaskList from './pages/TaskList/TaskList';
 import './App.css';
 
 function App() {
