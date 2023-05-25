@@ -12,6 +12,7 @@ const tasksSlice = createSlice({
       state.tasks = JSON.parse(localStorage.getItem('tasks'));
     },
     createTask(state, { payload }) {
+      console.log(payload);
       state.tasks.push(payload);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
@@ -25,7 +26,7 @@ const tasksSlice = createSlice({
 
 export default tasksSlice.reducer;
 export const {
-  getFavorites,
-  addToFavorites,
-  removeFromFavorites,
+  getTasks,
+  createTask,
+  deleteTask,
 } = tasksSlice.actions;

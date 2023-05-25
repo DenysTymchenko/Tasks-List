@@ -1,24 +1,36 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { createTask } from '../../store/modules/tasks/reducer'
 import { Modal, TextField, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { NewTaskButton } from '../../mui-customs/NewTaskButton';
-import { NewTaskForm } from '../../mui-customs/NewTaskForm';
 import PrioritySelector from './PrioritySelector/PrioritySelector';
-import useFormValidation from '../../hooks/useFormValidation';
+import './CreateNewTask.css';
 
 export default function CreateNewTask() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [setTitle, isTitleValid] = useFormValidation();
-  const handleInputChange = (inputValue, setInput) => {
-    setInput(inputValue);
-  }
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+  } = useForm({
+    mode: 'onBlur',
+  });
 
-  const handleCreateNewTask = (task) => {
+  const dispatch = useDispatch();
 
-  }
+  const onSubmit = (data) => {
+    const priority = document.querySelector('input[name="priority"]:checked').value;
+    data.priority = priority;
+    console.log(data);
+    dispatch(createTask(data));
+    reset();
+  };
 
   return (
     <>
@@ -30,24 +42,39 @@ export default function CreateNewTask() {
         open={open}
         onClose={handleClose}
       >
-        <NewTaskForm>
+        <form className='task-form' onSubmit={handleSubmit(onSubmit)}>
           <TextField
             label='Title'
             variant='outlined'
-            error={!isTitleValid(3, 25)}
-            helperText={!isTitleValid(3, 25) ? 'Title must be atleast 3 or 25 characters long.' : ''}
-            onChange={(e) => handleInputChange(e.target.value, setTitle)}
+            {...register('title', {
+              required: 'Title must be filled',
+              minLength: {
+                value: 3,
+                message: 'Title must contain atleast 3 symbols.',
+              },
+              maxLength: {
+                value: 25,
+                message: 'Title must contain less then 25 symbols.',
+              },
+            })}
+            error={errors?.title}
+            helperText={errors?.title ? errors.title.message : ''}
           />
 
-          <TextField label='Description' variant='outlined' />
+          <TextField
+            label='Description'
+            variant='outlined'
+            {...register('description')}
+          />
           <PrioritySelector />
           <Button
             variant='contained'
-            disabled={!isTitleValid(3, 25) ? true : false}
+            type='submit'
+            disabled={!isValid}
           >
             Create
           </Button>
-        </NewTaskForm>
+        </form>
       </Modal>
     </>
   );

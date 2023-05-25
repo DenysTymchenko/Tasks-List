@@ -4,10 +4,7 @@ export default function PrioritySelector() {
   return (
     <FormControl>
       <FormLabel>Priority</FormLabel>
-      <RadioGroup
-        defaultValue='low'
-        name='priority-group'
-      >
+      <RadioGroup defaultValue='low'name='priority'>
         <FormControlLabel value='low' control={<Radio />} label='Low' />
         <FormControlLabel value='medium' control={<Radio />} label='Medium' />
         <FormControlLabel value='high' control={<Radio />} label='High' />
