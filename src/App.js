@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getTasks } from './store/modules/tasks/reducer';
 import TaskList from './pages/TaskList/TaskList';
-import './App.css';
 
 function App() {
   const { tasks } = useSelector((state) => state.tasksReducer);

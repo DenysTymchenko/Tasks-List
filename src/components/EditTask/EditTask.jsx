@@ -45,7 +45,7 @@ export default function EditTask({ task }) {
         open={open}
         onClose={handleClose}
       >
-        <form className='task-form' onSubmit={handleSubmit(onSubmit)}>
+        <form className='edit-task-form' onSubmit={handleSubmit(onSubmit)}>
           <TextField
             label='Title'
             defaultValue={task.title}

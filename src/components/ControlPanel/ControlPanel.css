@@ -17,3 +17,14 @@
 .control-panel label {
   color: white !important;
 }
+
+@media screen and (max-width: 500px) {
+  .control-panel {
+    flex-direction: column;
+  }
+
+  .control-panel > * {
+    width: 100% !important;
+  }
+}
+
