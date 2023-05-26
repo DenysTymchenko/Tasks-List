@@ -30,6 +30,7 @@ export default function EditTask({ task }) {
   const onSubmit = (data) => {
     data.id = task.id;
     data.priority = document.querySelector('input[name="priority"]:checked').value;
+    data.completed = task.completed;
     dispatch(updateTask(data));
     handleClose();
   };
