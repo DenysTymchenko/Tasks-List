@@ -6,6 +6,7 @@ import TaskFooter from './TaskFooter/TaskFooter';
 import './TaskItem.css';
 
 export default function TaskItem({ task }) {
+  //This object used for setting background color for TaskHeader and TaskFooter, depending on task.priority
   const getColorFromPriority = {
     'low': 'var(--low-priority)',
     'medium': 'var(--medium-priority)',

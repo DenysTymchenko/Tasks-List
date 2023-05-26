@@ -7,10 +7,14 @@ import ChoosePriority from './ChoosePriority/ChoosePriority';
 
 export default function ControlPanel({ tasks, setTasksArr }) {
   const [sortedTasks, setSortedTasks] = useState([]);
+  useEffect(() => {
+    setTasksArr(sortedTasks);
+  }, [sortedTasks, setTasksArr]);
+
   const [query, setQuery] = useState('');
   const [priority, setPriority] = useState('desc');
   const [sortBy, setSortBy] = useState('priority');
-
+  //updating tasksArr items order depending on input or/and priority
   useEffect(() => {
     let filteredTasks = tasks;
 
@@ -50,10 +54,6 @@ export default function ControlPanel({ tasks, setTasksArr }) {
 
     setSortedTasks(sortedTasks);
   }, [query, tasks, priority, sortBy]);
-
-  useEffect(() => {
-    setTasksArr(sortedTasks);
-  }, [sortedTasks, setTasksArr]);
 
   return (
     <Container className='control-panel'>

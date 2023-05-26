@@ -19,21 +19,22 @@ export default function EditTask({ task }) {
 
 
   const {
-    register,
-    formState: { errors, isValid },
-    handleSubmit,
+    register, //allows to register an input or select element and apply validation rules.
+    formState: { errors, isValid }, //we can show hints to user by using errors, and disable submit with isValid.
+    handleSubmit, //takes function, that consists logic of form data processing, as argument.
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onBlur', //hints (error message) will be shown only when :focus disappears from input.
   });
 
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    //updating existing task
     data.id = task.id;
     data.priority = document.querySelector('input[name="priority"]:checked').value;
     data.completed = task.completed;
     dispatch(updateTask(data));
-    handleClose();
+    handleClose(); //closing form after edit
   };
 
   return (

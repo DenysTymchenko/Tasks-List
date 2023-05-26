@@ -20,22 +20,23 @@ export default function CreateNewTask() {
   };
 
   const {
-    register,
-    formState: { errors, isValid },
-    handleSubmit,
-    reset,
+    register, //allows to register an input or select element and apply validation rules.
+    formState: { errors, isValid }, //we can show hints to user by using errors, and disable submit with isValid.
+    handleSubmit, //takes function, that consists logic of form data processing, as argument.
+    reset, //gives us oportunity to clear form after submit.
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onBlur', //hints (error message) will be shown only when :focus disappears from input.
   });
 
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    //creating new task
     data.id = generateId();
     data.priority = document.querySelector('input[name="priority"]:checked').value;
     data.completed = false;
     dispatch(createTask(data));
-    reset();
+    reset(); //clearing form
   };
 
   return (
