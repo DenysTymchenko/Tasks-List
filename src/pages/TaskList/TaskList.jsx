@@ -1,20 +1,22 @@
 import { useSelector } from 'react-redux';
 import { Container } from '@mui/material';
 import CreateNewTask from '../../components/CreateNewTask/CreateNewTask';
-import { SearchBar } from '../../mui-customs/SearchBar';
 import CompletedTasks from '../../components/CompletedTasks/CompletedTasks';
 import UncompletedTasks from '../../components/UncompletedTasks/UncompletedTasks';
 import './TaskList.css';
 import ControlPanel from '../../components/ControlPanel/ControlPanel';
+import { useState } from 'react';
 
 export default function TaskList() {
+  const [ query, setQuery ] = useState('');
   const { tasks } = useSelector((state) => state.tasksReducer);
-  const uncompletedTasks = tasks.filter(task => !task.completed);
-  const completedTasks = tasks.filter(task => task.completed);
+  const tasksArr = query ? tasks.filter((task) => task.title.toLowerCase().indexOf(query) !== -1) : tasks;
+  const uncompletedTasks = tasksArr.filter(task => !task.completed);
+  const completedTasks = tasksArr.filter(task => task.completed);
 
   return (
     <>
-      <ControlPanel />
+      <ControlPanel setQuery={setQuery} />
       <Container className='task-list'>
         <UncompletedTasks uncompletedTasks={uncompletedTasks} />
         <CompletedTasks completedTasks={completedTasks} />

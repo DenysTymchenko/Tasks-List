@@ -3,7 +3,7 @@ import { Container, InputLabel, MenuItem, FormControl, Select } from "@mui/mater
 import { SearchBar } from "../../mui-customs/SearchBar";
 import './ControlPanel.css';
 
-export default function ControlPanel() {
+export default function ControlPanel({ setQuery }) {
   const [status, setStatus] = useState('des');
   const [priority, setPriority] = useState('des');
   const [sort, setSort] = useState('priority');
@@ -18,7 +18,7 @@ export default function ControlPanel() {
         label="Find task"
         placeholder="Enter it's title"
         variant="outlined"
-      //onChange={(e) => handleQuery(e.target.value)}
+        onChange={(e) => handleChange(e, setQuery)}
       />
       <FormControl>
         <InputLabel>Status</InputLabel>
