@@ -5,6 +5,7 @@ import {
   IconButton,
 } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
+import './TaskHeader.css';
 
 export default function TaskHeader({ title }) {
   return (

@@ -1,0 +1,14 @@
+.task-header {
+  display: flex !important; /*<Conteiner> overwrites this css property to block*/
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-alt);
+  background-color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.task-header {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}

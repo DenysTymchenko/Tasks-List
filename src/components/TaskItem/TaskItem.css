@@ -12,25 +12,6 @@
   fill: var(--secondary-alt);
 }
 
-.task-header, .task-footer {
-  display: flex !important; /*<Conteiner> overwrites this css property to block*/
-  justify-content: space-between;
-  align-items: center;
-  color: var(--secondary-alt);
-  background-color: black;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .description {
   padding: 10px 24px;
-}
-
-.task-header {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-.task-footer {
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
 }
