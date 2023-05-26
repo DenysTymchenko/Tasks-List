@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Container } from '@mui/material';
 import CreateNewTask from '../../components/CreateNewTask/CreateNewTask';
@@ -12,6 +13,10 @@ export default function TaskList() {
   const [tasksArr, setTasksArr] = useState(tasks);
   const uncompletedTasks = tasksArr.filter(task => !task.completed);
   const completedTasks = tasksArr.filter(task => task.completed);
+
+  useEffect(() => {
+    setTasksArr(tasks);
+  }, [tasks]);
 
   return (
     <>
