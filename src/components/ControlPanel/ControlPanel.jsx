@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 import { SearchBar } from "../../mui-customs/SearchBar";
 import './ControlPanel.css';
 
-export default function ControlPanel({ setQuery }) {
-  const [status, setStatus] = useState('des');
-  const [priority, setPriority] = useState('des');
+export default function ControlPanel({ tasks, setTasksArr }) {
+  const [query, setQuery] = useState('');
+  //const [status, setStatus] = useState('desc');
+  const [priority, setPriority] = useState('desc');
   const [sort, setSort] = useState('priority');
+
+  useEffect(() => {
+    setTasksArr(query ? tasks.filter((task) => task.title.toLowerCase().indexOf(query) !== -1) : tasks)
+  }, [query, tasks]);
+
+  useEffect(() => {
+    const priorityTasks = [...tasks];
+    priorityTasks.sort((a, b) => {
+      const priorityOrder = {
+        high: priority === 'desc' ? 1 : 3,
+        medium: 2,
+        low: priority === 'desc' ? 3 : 1
+      };
+      const priorityA = priorityOrder[a.priority] || 0;
+      const priorityB = priorityOrder[b.priority] || 0;
+
+      return priorityA - priorityB;
+    });
+
+    setTasksArr(priorityTasks);
+
+  }, [priority, tasks]);
 
   const handleChange = (e, setChange) => {
     setChange(e.target.value);
@@ -20,7 +43,7 @@ export default function ControlPanel({ setQuery }) {
         variant="outlined"
         onChange={(e) => handleChange(e, setQuery)}
       />
-      <FormControl>
+      {/*<FormControl>
         <InputLabel>Status</InputLabel>
         <Select
           value={status}
@@ -28,9 +51,9 @@ export default function ControlPanel({ setQuery }) {
           onChange={(e) => handleChange(e, setStatus)}
         >
           <MenuItem value='asc'>Ascending</MenuItem>
-          <MenuItem value='des'>Descending</MenuItem>
+          <MenuItem value='desc'>Descending</MenuItem>
         </Select>
-      </FormControl>
+      </FormControl>*/}
 
       <FormControl>
         <InputLabel>Priority</InputLabel>
@@ -40,7 +63,7 @@ export default function ControlPanel({ setQuery }) {
           onChange={(e) => handleChange(e, setPriority)}
         >
           <MenuItem value='asc'>Ascending</MenuItem>
-          <MenuItem value='des'>Descending</MenuItem>
+          <MenuItem value='desc'>Descending</MenuItem>
         </Select>
       </FormControl>
 
