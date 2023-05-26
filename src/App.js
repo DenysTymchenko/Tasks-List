@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     localStorage.tasks
       ? dispatch(getTasks())
-      : localStorage.setItem('favorites', JSON.stringify(tasks));
+      : localStorage.setItem('tasks', JSON.stringify(tasks));
   }, []);
 
   return (

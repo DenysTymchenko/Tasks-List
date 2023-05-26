@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import PrioritySelector from '../PrioritySelector/PrioritySelector';
+import './EditTask.css';
 
 export default function EditTask({ task }) {
   const [open, setOpen] = useState(false);

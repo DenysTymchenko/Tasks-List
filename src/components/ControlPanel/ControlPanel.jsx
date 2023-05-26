@@ -56,11 +56,11 @@ export default function ControlPanel({ tasks, setTasksArr }) {
   }, [sortedTasks, setTasksArr]);
 
   return (
-    <Container className="control-panel">
+    <Container className='control-panel'>
       <SearchBar
-        label="Find task"
-        placeholder="Enter its title"
-        variant="outlined"
+        label='Find task'
+        placeholder='Enter its title'
+        variant='outlined'
         onChange={(e) => setQuery(e.target.value)}
       />
       <SortBy sortBy={sortBy} setSortBy={setSortBy} />

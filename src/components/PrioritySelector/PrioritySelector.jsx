@@ -1,4 +1,10 @@
-import { FormLabel, RadioGroup, FormControlLabel, Radio, FormControl } from '@mui/material';
+import {
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  FormControl
+} from '@mui/material';
 
 export default function PrioritySelector({ priority }) {
   return (

@@ -2,7 +2,7 @@ import {
   Container,
   Typography,
   IconButton,
-} from "@mui/material";
+} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './TaskFooter.css';
 

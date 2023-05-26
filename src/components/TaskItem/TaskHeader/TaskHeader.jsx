@@ -2,10 +2,10 @@ import {
   Checkbox,
   Container,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { setCompleted } from "../../../store/modules/tasks/reducer";
-import EditTask from "../../EditTask/EditTask";
+import { setCompleted } from '../../../store/modules/tasks/reducer';
+import EditTask from '../../EditTask/EditTask';
 import './TaskHeader.css';
 
 export default function TaskHeader({ task, bgColor }) {

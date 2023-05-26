@@ -1,8 +1,8 @@
-import { useDispatch } from "react-redux";
-import { deleteTask } from "../../store/modules/tasks/reducer";
-import { Paper, Typography } from "@mui/material";
-import TaskHeader from "./TaskHeader/TaskHeader";
-import TaskFooter from "./TaskFooter/TaskFooter";
+import { useDispatch } from 'react-redux';
+import { deleteTask } from '../../store/modules/tasks/reducer';
+import { Paper, Typography } from '@mui/material';
+import TaskHeader from './TaskHeader/TaskHeader';
+import TaskFooter from './TaskFooter/TaskFooter';
 import './TaskItem.css';
 
 export default function TaskItem({ task }) {
