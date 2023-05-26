@@ -10,6 +10,10 @@
   margin-bottom: 20px;
 }
 
-.control-panel > input {
-  margin-right: 10px;
+input {
+  color: white !important;
+}
+
+label {
+  color: white !important;
 }

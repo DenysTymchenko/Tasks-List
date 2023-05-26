@@ -12,6 +12,7 @@ export default function ChoosePriority({ priority, setPriority }) {
       <Select
         value={priority}
         label='Priority'
+        sx={{color: 'var(--secondary-alt)'}}
         onChange={(e) => setPriority(e.target.value)}
       >
         <MenuItem value='asc'>Ascending</MenuItem>

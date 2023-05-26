@@ -10,6 +10,7 @@ export default function SortBy({ sortBy, setSortBy }) {
     <FormControl>
       <InputLabel>Sort by</InputLabel>
       <Select
+        sx={{color: 'var(--secondary-alt)'}}
         value={sortBy}
         label='Sort by'
         onChange={(e) => setSortBy(e.target.value)}
