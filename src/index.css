@@ -22,4 +22,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--secondary);
   background-color: var(--main);
+  padding: 10px;
 }
