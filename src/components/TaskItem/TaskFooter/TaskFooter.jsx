@@ -6,9 +6,13 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import './TaskFooter.css';
 
-export default function TaskFooter({ priority, handleDeleteTask }) {
+export default function TaskFooter({ 
+  priority,
+  bgColor,
+  handleDeleteTask 
+}) {
   return (
-    <Container className='task-footer'>
+    <Container className='task-footer' sx={{backgroundColor: bgColor}}>
     <Typography className='priority' variant='body'>Priority: {priority}</Typography>
     <IconButton onClick={handleDeleteTask}>
       <DeleteIcon />

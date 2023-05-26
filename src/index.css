@@ -20,9 +20,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--main);
-}
-
-body > * {
   color: var(--secondary);
+  background-color: var(--main);
 }

@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Container, Typography } from '@mui/material';
-import TaskItem from '../../components/TaskItem/TaskItem';
+import { Container } from '@mui/material';
 import CreateNewTask from '../../components/CreateNewTask/CreateNewTask';
 import './TaskList.css';
 import CompletedTasks from '../../components/CompletedTasks/CompletedTasks';
