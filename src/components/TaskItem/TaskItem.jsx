@@ -1,31 +1,25 @@
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../../store/modules/tasks/reducer";
 import {
-  Checkbox,
-  Container,
   Paper,
   Typography,
-  IconButton,
 } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+
+import TaskHeader from "./TaskHeader/TaskHeader";
+import TaskFooter from "./TaskFooter/TaskFooter";
 import './TaskItem.css';
 
-export default function TaskItem() {
+export default function TaskItem({ task }) {
+  const dispatch = useDispatch();
+  const handleDeleteTask = () => {
+  }
+
+    dispatch(deleteTask(task));
   return (
     <Paper className='task' sx={{ borderRadius: '15px' }}>
-      <Container className='task-header'>
-        <Checkbox />
-        <Typography className='title' variant='h4'>Title</Typography>
-        <IconButton>
-          <EditIcon />
-        </IconButton>
-      </Container>
-      <Typography className='description' variant='body2'>description</Typography>
-      <Container className='task-footer'>
-        <Typography className='priority' variant='body'>Priority: High</Typography>
-        <IconButton>
-          <DeleteIcon />
-        </IconButton>
-      </Container>
+      <TaskHeader title={task.title} />
+      {task.description && <Typography className='description' variant='body2'>{task.description}</Typography>}
+      <TaskFooter priority={task.priority} handleDeleteTask={handleDeleteTask} />
     </Paper>
   )
 }

@@ -1,5 +1,6 @@
 .task {
   width: 35%;
+  gap: 20px;
 }
 
 .task * {
