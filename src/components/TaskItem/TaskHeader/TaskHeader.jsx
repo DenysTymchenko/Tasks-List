@@ -2,19 +2,16 @@ import {
   Checkbox,
   Container,
   Typography,
-  IconButton,
 } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
 import './TaskHeader.css';
+import EditTask from "../../EditTask/EditTask";
 
-export default function TaskHeader({ title }) {
+export default function TaskHeader({ task }) {
   return (
     <Container className='task-header'>
       <Checkbox />
-      <Typography className='title' variant='h4'>{title}</Typography>
-      <IconButton>
-        <EditIcon />
-      </IconButton>
+      <Typography className='title' variant='h4'>{task.title}</Typography>
+      <EditTask task={task} />
     </Container>
   )
 }

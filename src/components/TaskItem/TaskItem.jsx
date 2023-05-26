@@ -8,14 +8,14 @@ import './TaskItem.css';
 export default function TaskItem({ task }) {
   const dispatch = useDispatch();
   const handleDeleteTask = () => {
-    dispatch(deleteTask(task));
-  };
+    dispatch(deleteTask(task))
+  }
 
   return (
     <Paper className='task' sx={{ borderRadius: '15px' }}>
-      <TaskHeader title={task.title} />
+      <TaskHeader task={task} />
       {task.description && <Typography className='description' variant='body2'>{task.description}</Typography>}
       <TaskFooter priority={task.priority} handleDeleteTask={handleDeleteTask} />
     </Paper>
-  );
+  )
 }

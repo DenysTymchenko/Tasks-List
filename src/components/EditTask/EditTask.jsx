@@ -1,29 +1,26 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { createTask } from '../../store/modules/tasks/reducer'
-import { Modal, TextField, Button } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import { NewTaskButton } from '../../mui-customs/NewTaskButton';
+import { updateTask } from '../../store/modules/tasks/reducer'
+import {
+  Modal,
+  TextField,
+  Button,
+  IconButton,
+} from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 import PrioritySelector from '../PrioritySelector/PrioritySelector';
-import './CreateNewTask.css';
 
-export default function CreateNewTask() {
+export default function EditTask({ task }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const generateId = () => {
-    const dateString = Date.now().toString(36);
-    const randomness = Math.random().toString(36).substring(2);
-    return dateString + randomness;
-  };
 
   const {
     register,
     formState: { errors, isValid },
     handleSubmit,
-    reset,
   } = useForm({
     mode: 'onBlur',
   });
@@ -31,17 +28,16 @@ export default function CreateNewTask() {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    data.id = generateId();
+    data.id = task.id;
     data.priority = document.querySelector('input[name="priority"]:checked').value;
-    dispatch(createTask(data));
-    reset();
+    dispatch(updateTask(data));
   };
 
   return (
     <>
-      <NewTaskButton onClick={handleOpen}>
-        <AddIcon />
-      </NewTaskButton>
+      <IconButton onClick={handleOpen}>
+        <EditIcon />
+      </IconButton>
 
       <Modal
         open={open}
@@ -50,16 +46,17 @@ export default function CreateNewTask() {
         <form className='task-form' onSubmit={handleSubmit(onSubmit)}>
           <TextField
             label='Title'
+            defaultValue={task.title}
             variant='outlined'
             {...register('title', {
               required: 'Title must be filled',
               minLength: {
                 value: 3,
-                message: 'Title must contain atleast 3 symbols.',
+                message: 'Title must contain at least 3 symbols.',
               },
               maxLength: {
                 value: 25,
-                message: 'Title must contain less then 25 symbols.',
+                message: 'Title must contain less than 25 symbols.',
               },
             })}
             error={errors?.title}
@@ -68,16 +65,17 @@ export default function CreateNewTask() {
 
           <TextField
             label='Description'
+            defaultValue={task.description}
             variant='outlined'
             {...register('description')}
           />
-          <PrioritySelector />
+          <PrioritySelector priority={task.priority} />
           <Button
             variant='contained'
             type='submit'
             disabled={!isValid}
           >
-            Create
+            Edit
           </Button>
         </form>
       </Modal>

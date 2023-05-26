@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { moduleName } from './constant';
 
-/* eslint-disable no-param-reassign */
 const tasksSlice = createSlice({
   name: moduleName,
   initialState: {
@@ -12,12 +11,16 @@ const tasksSlice = createSlice({
       state.tasks = JSON.parse(localStorage.getItem('tasks'));
     },
     createTask(state, { payload }) {
-      console.log(payload);
       state.tasks.push(payload);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
+    updateTask(state, { payload }) {
+      const index = state.tasks.findIndex(task => task.id === payload.id);
+      state.tasks[index] = payload;
+      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    },
     deleteTask(state, task) {
-      const index = state.tasks.indexOf(task);
+      const index = state.tasks.findIndex(element => element.id === task.id);
       state.tasks.splice(index, 1);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
@@ -28,5 +31,6 @@ export default tasksSlice.reducer;
 export const {
   getTasks,
   createTask,
+  updateTask,
   deleteTask,
 } = tasksSlice.actions;
