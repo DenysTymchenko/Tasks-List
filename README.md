@@ -19,10 +19,10 @@
 # For developers
 
 ## How to start:
-1. **npm install**
-  Run the following command to install the necessary dependencies from package.json.
-2. **npm start**
-  Use this command to start live server.
+### `npm install`
+Run the following command to install the necessary dependencies from package.json.
+### `npm start`
+Use this command to start live server.
 
 ## All scripts
 
