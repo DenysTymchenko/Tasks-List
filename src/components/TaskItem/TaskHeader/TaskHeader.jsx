@@ -15,9 +15,13 @@ export default function TaskHeader({ task, bgColor }) {
   }
 
   return (
-    <Container className='task-header' sx={{backgroundColor: bgColor}}>
+    <Container className='task-header' sx={{ backgroundColor: bgColor }}>
       <Checkbox checked={task.completed} onChange={handleSetCompleted} />
-      <Typography className='title' variant='h4'>{task.title}</Typography>
+      <Typography
+        className='title'
+        variant='h4'
+        sx={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+      >{task.title}</Typography>
       <EditTask task={task} />
     </Container>
   )
