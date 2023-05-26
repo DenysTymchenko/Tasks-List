@@ -31,6 +31,7 @@ export default function EditTask({ task }) {
     data.id = task.id;
     data.priority = document.querySelector('input[name="priority"]:checked').value;
     dispatch(updateTask(data));
+    handleClose();
   };
 
   return (

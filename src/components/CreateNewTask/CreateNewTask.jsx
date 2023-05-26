@@ -33,6 +33,7 @@ export default function CreateNewTask() {
   const onSubmit = (data) => {
     data.id = generateId();
     data.priority = document.querySelector('input[name="priority"]:checked').value;
+    data.completed = false;
     dispatch(createTask(data));
     reset();
   };

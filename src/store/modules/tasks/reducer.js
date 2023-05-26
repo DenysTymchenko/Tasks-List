@@ -24,6 +24,11 @@ const tasksSlice = createSlice({
       state.tasks.splice(index, 1);
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
+    setCompleted(state, { payload }) {
+      const index = state.tasks.findIndex(element => element.id === payload.id);
+      state.tasks[index].completed = !payload.completed;
+      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+    }
   },
 });
 
@@ -33,4 +38,5 @@ export const {
   createTask,
   updateTask,
   deleteTask,
+  setCompleted,
 } = tasksSlice.actions;
