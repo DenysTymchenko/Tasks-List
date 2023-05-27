@@ -1,9 +1,6 @@
 .task {
   width: 50%;
   gap: 20px;
-}
-
-.task * {
   text-align: center;
 }
 
