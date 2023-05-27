@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { createTask } from '../../store/modules/tasks/reducer'
+import { createTask } from '../../../store/modules/tasks/reducer'
 import { Modal, TextField, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { NewTaskButton } from '../../mui-customs/NewTaskButton';
+import { NewTaskButton } from '../../../mui-customs/NewTaskButton';
 import PrioritySelector from '../PrioritySelector/PrioritySelector';
 import './CreateNewTask.css';
 

@@ -7,7 +7,7 @@ export default function UncompletedTasks({ uncompletedTasks }) {
       <Typography
         variant='h2'
         sx={{
-          '@media (max-width: 355px)': 
+          '@media (max-width: 355px)':
           {
             fontSize: '2.75rem'
           }

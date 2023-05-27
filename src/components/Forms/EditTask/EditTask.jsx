@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { updateTask } from '../../store/modules/tasks/reducer'
+import { updateTask } from '../../../store/modules/tasks/reducer'
 import {
   Modal,
   TextField,

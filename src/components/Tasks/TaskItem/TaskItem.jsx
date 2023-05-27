@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteTask } from '../../store/modules/tasks/reducer';
+import { deleteTask } from '../../../store/modules/tasks/reducer';
 import { Paper, Typography } from '@mui/material';
 import TaskHeader from './TaskHeader/TaskHeader';
 import TaskFooter from './TaskFooter/TaskFooter';
@@ -27,7 +27,7 @@ export default function TaskItem({ task }) {
       {task.description && <Typography className='description' variant='body2'>{task.description}</Typography>}
       <TaskFooter
         bgColor={getColorFromPriority[task.priority]}
-        priority={task.priority} 
+        priority={task.priority}
         handleDeleteTask={handleDeleteTask}
       />
     </Paper>

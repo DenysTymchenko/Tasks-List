@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container } from '@mui/material';
-import CreateNewTask from '../../components/CreateNewTask/CreateNewTask';
-import CompletedTasks from '../../components/CompletedTasks/CompletedTasks';
-import UncompletedTasks from '../../components/UncompletedTasks/UncompletedTasks';
+import CreateNewTask from '../../components/Forms/CreateNewTask/CreateNewTask';
+import CompletedTasks from '../../components/Tasks/CompletedTasks/CompletedTasks';
+import UncompletedTasks from '../../components/Tasks/UncompletedTasks/UncompletedTasks';
 import ControlPanel from '../../components/ControlPanel/ControlPanel';
 import './TaskList.css';
 

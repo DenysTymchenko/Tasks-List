@@ -1,13 +1,10 @@
-.task-footer {
+.task-header {
   display: flex !important; /*<Conteiner> overwrites this css property to block*/
   justify-content: space-between;
   align-items: center;
   color: var(--secondary-alt);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-.task-footer {
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
 }
